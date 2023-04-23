@@ -62,6 +62,9 @@ public class PlayerMovement : MonoBehaviour
         }
 
         transform.position += model.up.normalized * maxSpeed * Time.fixedDeltaTime;
+        // transform.position = Vector2.Lerp(transform.position,
+        //     currentTarget,
+        //     moveSpeed * Time.fixedDeltaTime);
     }
 
     private void OnDrawGizmos()

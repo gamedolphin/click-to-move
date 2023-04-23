@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class RandomSpriter : MonoBehaviour
@@ -9,6 +10,17 @@ public class RandomSpriter : MonoBehaviour
     private void Awake()
     {
         UpdateSprite();
+
+        StartCoroutine(TimedUpdate());
+    }
+
+    private IEnumerator TimedUpdate()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(2);
+            UpdateSprite();
+        }
     }
 
     [ContextMenu("Update Sprite")]
