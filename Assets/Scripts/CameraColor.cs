@@ -13,6 +13,7 @@ public class CameraColor : MonoBehaviour
     {
         cam = GetComponent<Camera>();
         hueShift.Initialize(cam.backgroundColor);
+        cam.backgroundColor = hueShift.Randomize();
     }
 
     private void LateUpdate()

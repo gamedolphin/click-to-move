@@ -11,6 +11,12 @@ public class HueShift
         Color.RGBToHSV(col,out hueValue, out satValue, out brightValue);
     }
 
+    public Color Randomize()
+    {
+        hueValue = Random.Range(0.0f, 1.0f);
+        return Color.HSVToRGB(hueValue,satValue,brightValue);
+    }
+
     public Color NextColor(float speed)
     {
         hueValue = hueValue + speed*Time.deltaTime;

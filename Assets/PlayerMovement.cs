@@ -1,5 +1,6 @@
 using UnityEngine;
 using Unity.Mathematics;
+using System.Collections;
 
 [RequireComponent(typeof(PlayerInput))]
 public class PlayerMovement : MonoBehaviour
@@ -19,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Transform model;
 
+    [SerializeField]
+    private bool autoMove = false;
+
     private Vector2 currentTarget = Vector2.zero;
 
     private void Awake()
@@ -27,6 +31,20 @@ public class PlayerMovement : MonoBehaviour
         input.OnPlayerClick += OnPlayerClick;
 
         currentTarget = transform.position;
+
+        if (autoMove)
+        {
+            StartCoroutine(AutoMove());
+        }
+    }
+
+    private IEnumerator AutoMove()
+    {
+        while(true)
+        {
+            currentTarget = new Vector2(UnityEngine.Random.Range(-10,10), UnityEngine.Random.Range(-5,5));
+            yield return new WaitForSeconds(2);
+        }
     }
 
     private void OnPlayerClick(Vector2 target)

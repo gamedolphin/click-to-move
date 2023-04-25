@@ -251,7 +251,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4adecf8dd4009996d86fc471445f9a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance: 1
+  minDistance: 0.1
+  rotateSpeed: 10
+  moveSpeed: 10
   model: {fileID: 1708478781}
 --- !u!114 &1387941240
 MonoBehaviour:
